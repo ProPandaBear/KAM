@@ -18,6 +18,7 @@ PREP(removeIV);
 PREP(retrieveIV);
 PREP(salineCheck);
 PREP(tourniquetRemove);
+PREP(updateInteractions);
 PREP(treatmentAdvanced_AmiodaroneLocal);
 PREP(treatmentAdvanced_AtropineLocal);
 PREP(treatmentAdvanced_Caffeine);

@@ -118,6 +118,15 @@ if !(_adjustments isEqualTo []) then {
     };
 };
 
+// Apply drug interaction adjustments
+[_unit, _deltaT, _syncValues] call EFUNC(pharma,updateInteractions);
+_hrTargetAdjustment             = _hrTargetAdjustment             + (_unit getVariable [QEGVAR(pharma,intHRAdj),        0]);
+_painSupressAdjustment          = _painSupressAdjustment          + (_unit getVariable [QEGVAR(pharma,intPainAdj),      0]);
+_peripheralResistanceAdjustment = _peripheralResistanceAdjustment + (_unit getVariable [QEGVAR(pharma,intFlowAdj),      0]);
+_alphaFactorAdjustment          = _alphaFactorAdjustment          + (_unit getVariable [QEGVAR(pharma,intAlphaAdj),     0]);
+_opioidAdjustment               = _opioidAdjustment               + (_unit getVariable [QEGVAR(pharma,intOpioidAdj),    0]);
+_opioidEffectAdjustment         = _opioidEffectAdjustment         + (_unit getVariable [QEGVAR(pharma,intOpioidEffect), 0]);
+
 [_unit, _painSupressAdjustment, _deltaT, _syncValues] call ACEFUNC(medical_vitals,updatePainSuppress); //Leave alone
 [_unit, _peripheralResistanceAdjustment, _deltaT, _syncValues] call ACEFUNC(medical_vitals,updatePeripheralResistance);
 [_unit, _opioidAdjustment, _deltaT, _syncValues] call FUNC(updateOpioidRelief);
